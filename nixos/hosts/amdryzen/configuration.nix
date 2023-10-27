@@ -59,7 +59,7 @@
         swtpm.enable = true;
 	      ovmf = {
             enable = true;
-            packages = pkgs.OVMFFull;
+            packages = with pkgs; [OVMFFull];
           };
 	      runAsRoot = true;
       };
