@@ -7,7 +7,7 @@
     services = {
       xserver = {
         enable = true;
-        videoDrivers = [ "amdgpu" ];
+        # videoDrivers = [ "amdgpu" ];
         displayManager.sddm = {
           enable = true;
         };
