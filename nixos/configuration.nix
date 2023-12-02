@@ -1,11 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
-}: {
+
+{ config, pkgs, ... }: {
   
   # Bootloader, Kernel, Params and modules
   boot = {
@@ -51,20 +48,35 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
+  services = {
+    cockpit = {
+      enable = true;
+    };
+
+    flatpak = {
+      enable = true;
+    };
+
+    openssh = {
+      enable = true;
+    };
+
+    printing = {
+      enable = true;
+    };
+
+    vnstat = {
+      enable = true;
+    };
+
+    xserver = {
+      layout = "de";
+      xkbVariant = "";
+    };
   };
 
   # Configure console keymap
   console.keyMap = "de";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable Flatpak support
-  services.flatpak.enable = true;
 
   # Enable dconf
   programs.dconf.enable = true;
@@ -100,8 +112,7 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  # Enable Fish-Shell
-  programs.fish.enable = true;
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -110,7 +121,6 @@
         isNormalUser = true;
         description = "Der Beta Kevin";
         extraGroups = ["networkmanager" "wheel"];
-        shell = pkgs.fish;
         packages = with pkgs; [
         ];
       };
@@ -136,46 +146,53 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    anydesk
     brave
     btop
-    cider
     conky
     discord
     evince
     eza
     firefox-wayland
+    glxinfo
     htop
     libreoffice
     lm_sensors
-    mcfly
-    microsoft-edge-dev
     neofetch
     neovim
     ntfs3g
     onlyoffice-bin
     pciutils
     pfetch
+    remmina
+    standardnotes
+    spotify
     starship
     tdesktop
+    teamviewer
+    timeshift
     unzip
+    virt-viewer
     vlc
     wget
+    whatsapp-for-linux
     xdg-user-dirs
   ];
 
   # Fonts
   fonts.packages = with pkgs; [
+    dina-font
+    fira-code
+    fira-code-symbols
+    jetbrains-mono
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
+    nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
     proggyfonts
-    jetbrains-mono
-    nerdfonts
+    ubuntu_font_family
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -187,9 +204,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

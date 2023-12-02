@@ -33,9 +33,9 @@
     environment.systemPackages = with pkgs; [
       kate
       kcalc
-      kdenlive
       libsForQt5.kmail
       libsForQt5.kwallet-pam
+      partition-manager
       pciutils
     ];
   };

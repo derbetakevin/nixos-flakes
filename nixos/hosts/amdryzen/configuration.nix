@@ -1,9 +1,5 @@
 # amdryzen specific config
-{
-  config, 
-  pkgs, 
-  ...
-}: {
+{ config, pkgs, ... }: {
   
   # Imports specific
   imports = [
@@ -26,7 +22,7 @@
   # Hostname, networking and bluetooth
   networking = {
     # Specify hostname
-    hostName = "AMDRyzen-Nix-2310-1";
+    hostName = "AMDNix2312-1";
   };
   
   # Services are good. Services are great. We should use them!
@@ -84,11 +80,15 @@
     };
   };
 
+  # Enable Fish-Shell
+  programs.fish.enable = true;
+
   # User account related things specific
   users = {
     users = {
       derbetakevin = {
         extraGroups = ["libvirt" "kvm"];
+        shell = pkgs.fish;
       };
     };
 
@@ -112,6 +112,9 @@
       distrobox
       gimp
       inkscape
+      kdenlive
+      mcfly
+      microsoft-edge-dev
       nvtop
       virt-manager
       win-virtio
