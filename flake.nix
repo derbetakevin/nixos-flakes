@@ -4,14 +4,9 @@
   inputs = {
     # List of repos:
     # nixpkgs          -> NixOS Unstable channel (Recommended if you plan to use GNOME)
-    # nixpkgs-stable   -> NixOS Stable channel (Currently Version 23.05)
+    # nixpkgs-stable   -> NixOS Stable channel (Currently Version 23.11)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
   };
 
   outputs = inputs @ {
@@ -31,31 +26,6 @@
           };
 
           modules = [
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${user} = {
-                  imports = [
-                    # common home-manager configuration
-                    ./nixos/home.nix
-                    # host specific home-manager configuration
-                    ./nixos/hosts/${host}/home.nix
-                  ];
-
-                  home = {
-                    username = user;
-                    homeDirectory = "/home/${user}";
-                    # do not change this value
-                    stateVersion = "23.05";
-                  };
-
-                  # Let Home Manager install and manage itself.
-                  programs.home-manager.enable = true;
-                };
-              };
-            }
             # common configuration
             ./nixos/configuration.nix
             # host specific configuration
@@ -67,7 +37,7 @@
     in {
       # update with `nix flake update`
       # rebuild with `nixos-rebuild switch --flake .#<INSERT HOST HERE>`
-      acer = mkHost "acer";
+      acertravelmate = mkHost "acertravelmate";
       amdryzen = mkHost "amdryzen";
     };
   };

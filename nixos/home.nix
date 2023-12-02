@@ -1,3 +1,0 @@
-# Shared Home Manager config
-{...}: {
-}
