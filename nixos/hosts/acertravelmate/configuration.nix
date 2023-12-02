@@ -43,6 +43,9 @@
     };
   };
 
+  # Enable zsh-Shell
+  programs.zsh.enable = true;
+
   # User account related things specific
   users = {
     users = {
