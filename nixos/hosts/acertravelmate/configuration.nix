@@ -67,7 +67,7 @@
     
     # Packages specific
     systemPackages = with pkgs; [
-      #No specific packages
+      gitFull
     ];
   };
 }
