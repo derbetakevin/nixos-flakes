@@ -111,10 +111,11 @@
     systemPackages = with pkgs; [
       distrobox
       gimp
+      google-chrome
       inkscape
       kdenlive
       mcfly
-      microsoft-edge-dev
+      microsoft-edge
       nvtop
       virt-manager
       win-virtio

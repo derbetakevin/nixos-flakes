@@ -4,34 +4,43 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [ 
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NixOS";
-      fsType = "xfs";
+  boot = {
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+      kernelModules = [ ];
     };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/BOOT";
-      fsType = "vfat";
-    };
+  fileSystems."/" = { 
+    device = "/dev/disk/by-label/NixOS";
+    fsType = "xfs";
+  };
 
-  fileSystems."/home/derbetakevin/HDD" =
-    { device = "/dev/disk/by-label/HDD";
-      fsType = "btrfs";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT";
+    fsType = "vfat";
+  };
 
-  fileSystems."/home/derbetakevin/USB" =
-    { device = "/dev/disk/by-label/USB";
-      fsType = "btrfs";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/HDD";
+    fsType = "xfs";
+  };
+
+  fileSystems."/home/derbetakevin/USB" = {
+    device = "/dev/disk/by-label/USB";
+    fsType = "btrfs";
+  };
+
+  fileSystems."/home/derbetakevin/OneDrive" = {
+    device = "/dev/disk/by-label/OneDrive";
+    fsType = "xfs";
+  };
 
   swapDevices = [ ];
 
