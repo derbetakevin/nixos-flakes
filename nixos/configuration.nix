@@ -155,9 +155,12 @@
     eza
     firefox-wayland
     glxinfo
+    gparted
     htop
+    hyfetch
     libreoffice
     lm_sensors
+    lsb-release
     neofetch
     neovim
     ntfs3g
@@ -165,6 +168,7 @@
     pciutils
     pfetch
     remmina
+    shortwave
     standardnotes
     spotify
     starship

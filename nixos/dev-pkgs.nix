@@ -25,6 +25,7 @@
     environment.systemPackages = with pkgs; [
       gh
       gitFull
+      github-desktop
       gnat13
       gnome.ghex
       godot_4

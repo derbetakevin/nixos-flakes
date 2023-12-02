@@ -22,7 +22,7 @@
   # Hostname, networking and bluetooth
   networking = {
     # Specify hostname
-    hostName = "AMDNix2312-1";
+    hostName = "AMDNix2312-X";
   };
   
   # Services are good. Services are great. We should use them!
@@ -117,6 +117,7 @@
       mcfly
       microsoft-edge
       nvtop
+      radeontop
       virt-manager
       win-virtio
     ];

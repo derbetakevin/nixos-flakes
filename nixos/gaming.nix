@@ -15,6 +15,7 @@
       gamemode
       lutris
       mangohud
+      pcsx2
       retroarch
       superTuxKart
       winePackages.stableFull
