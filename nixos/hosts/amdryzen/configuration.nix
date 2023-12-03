@@ -25,6 +25,13 @@
     hostName = "AMDNix2312-X";
   };
   
+  # Hardware specific
+  hardware = {
+    bluetooth = {
+      enable = true;
+    };
+  };
+
   # Services are good. Services are great. We should use them!
   services = {
     
@@ -110,6 +117,7 @@
     # Packages specific
     systemPackages = with pkgs; [
       ausweisapp
+      blueman
       chatterino2
       distrobox
       fluent-reader
