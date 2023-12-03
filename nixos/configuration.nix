@@ -157,6 +157,7 @@
     fsearch
     glxinfo
     gparted
+    hardinfo
     htop
     hyfetch
     libreoffice

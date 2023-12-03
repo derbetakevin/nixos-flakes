@@ -129,6 +129,7 @@
       microsoft-edge
       nvtop
       obs-studio
+      onedrivegui
       radeontop
       skypeforlinux
       teamspeak_client
