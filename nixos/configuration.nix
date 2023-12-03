@@ -154,6 +154,7 @@
     evince
     eza
     firefox-wayland
+    fsearch
     glxinfo
     gparted
     htop
@@ -166,7 +167,7 @@
     ntfs3g
     onlyoffice-bin
     pciutils
-    pfetch
+    pfetch-rs
     remmina
     shortwave
     standardnotes

@@ -109,7 +109,10 @@
 
     # Packages specific
     systemPackages = with pkgs; [
+      ausweisapp
+      chatterino2
       distrobox
+      fluent-reader
       gimp
       google-chrome
       inkscape
@@ -117,7 +120,11 @@
       mcfly
       microsoft-edge
       nvtop
+      obs-studio
       radeontop
+      skypeforlinux
+      teamspeak_client
+      teamspeak5_client
       virt-manager
       win-virtio
     ];

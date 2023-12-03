@@ -11,10 +11,13 @@
     # Gaming-specific packages
     environment.systemPackages = with pkgs; [
       bottles
+      cartridges
       dolphin-emu
       gamemode
       lutris
       mangohud
+      minecraft
+      osu-lazer-bin
       pcsx2
       retroarch
       superTuxKart

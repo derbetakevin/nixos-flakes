@@ -33,7 +33,11 @@
     environment.systemPackages = with pkgs; [
       kate
       kcalc
+      libsForQt5.filelight
+      libsForQt5.kget
       libsForQt5.kmail
+      libsForQt5.kpat
+      libsForQt5.ktorrent
       libsForQt5.kwallet-pam
       partition-manager
       pciutils
