@@ -48,6 +48,13 @@
     pipewire = {
       jack.enable = false;
     };
+
+    udev = {
+      # Add Streamdeck MK.2 udev rule
+      extraRules = ''
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0fd9", GROUP="users", TAG+="uaccess"
+      ''
+    };
   };
 
   # QEMU/KVM & Podman
@@ -124,6 +131,7 @@
       chatterino2
       distrobox
       element-desktop
+      espanso-wayland
       fluent-reader
       gimp
       google-chrome
