@@ -120,6 +120,7 @@
       blueman
       chatterino2
       distrobox
+      element-web
       fluent-reader
       gimp
       google-chrome
