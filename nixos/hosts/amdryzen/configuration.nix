@@ -159,6 +159,7 @@
       onedrivegui
       radeontop
       skypeforlinux
+      spice
       teamspeak_client
       teamspeak5_client
       virt-manager
