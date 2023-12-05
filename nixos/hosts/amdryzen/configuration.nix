@@ -1,5 +1,5 @@
 # amdryzen specific config
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   
   # Imports specific
   imports = [
