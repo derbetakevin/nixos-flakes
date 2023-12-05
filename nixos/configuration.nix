@@ -149,6 +149,7 @@
     anydesk
     brave
     btop
+    cmatrix
     conky
     discord
     evince
@@ -156,6 +157,7 @@
     firefox-wayland
     fsearch
     glxinfo
+    gnome.gnome-disk-utility
     gparted
     hardinfo
     htop
@@ -177,7 +179,9 @@
     tdesktop
     teamviewer
     timeshift
+    thunderbird-unwrapped
     unzip
+    vesktop
     virt-viewer
     vlc
     wget

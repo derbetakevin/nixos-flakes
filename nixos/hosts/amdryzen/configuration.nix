@@ -53,7 +53,19 @@
       # Add Streamdeck MK.2 udev rule
       extraRules = ''
         SUBSYSTEMS=="usb", ATTRS{idVendor}=="0fd9", GROUP="users", TAG+="uaccess"
-      ''
+      '';
+    };
+
+    spice-vdagentd = {
+      enable = true;
+    };
+
+    spice-autorandr = {
+      enable = true;
+    };
+
+    spice-webdavd = {
+      enable = true;
     };
   };
 
@@ -67,6 +79,7 @@
       # Extra QEMU options
       qemu = {
 	      runAsRoot = true;
+
         swtpm = {
           enable = true;
         };
@@ -126,6 +139,8 @@
 
     # Packages specific
     systemPackages = with pkgs; [
+      inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
+      inputs.nix-software-center.packages.${system}.nix-software-center
       ausweisapp
       blueman
       chatterino2
