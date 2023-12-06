@@ -3,7 +3,10 @@
   
   # Imports specific
   imports = [
+    # ../../dev-pkgs.nix
+    # ../../gaming.nix
     ../../kde.nix
+    # ../../kde-gaming.nix
   ];
 
   # Bootloader has to be done per machine, since the Acer doesn't 
