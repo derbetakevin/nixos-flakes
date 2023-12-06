@@ -6,6 +6,7 @@
     ../../dev-pkgs.nix
     ../../gaming.nix
     ../../kde.nix
+    ../../kde-games.nix
   ];
 
   # Bootloader has to be done per machine, since the ThinkPad doesn't 
