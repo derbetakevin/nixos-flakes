@@ -148,22 +148,31 @@
       distrobox
       element-desktop
       espanso-wayland
+      firefox-beta
+      firefox-devedition
+      firefox-esr
       fluent-reader
       gimp
       google-chrome
       inkscape
       kdenlive
+      librewolf
       mcfly
       microsoft-edge
+      microsoft-edge-beta
+      microsoft-edge-dev
       nvtop
       obs-studio
       onedrivegui
+      opera
       radeontop
       skypeforlinux
       spice
       teamspeak_client
       teamspeak5_client
+      tor-browser
       virt-manager
+      vivaldi
       win-virtio
     ];
   };

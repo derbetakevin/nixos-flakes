@@ -180,6 +180,7 @@
     teamviewer
     timeshift
     thunderbird-unwrapped
+    usbutils
     unzip
     vesktop
     virt-viewer

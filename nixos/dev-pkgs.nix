@@ -31,6 +31,7 @@
       godot_4
       nix-prefetch-scripts
       pkg-config
+      powershell
       python311Full
       vscode
     ];
