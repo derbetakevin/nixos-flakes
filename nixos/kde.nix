@@ -8,15 +8,22 @@
       xserver = {
         enable = true;
         # videoDrivers = [ "amdgpu" ];
-        displayManager.sddm = {
-          enable = true;
+        displayManager = {
+          sddm = {
+            enable = true;
+          };
         };
-        desktopManager.plasma5.enable = true;
+        desktopManager = {
+          plasma5 = {
+            enable = true;
+          };
+        };
       };
 
       # fwupd service
-      fwupd.enable = true;
-
+      fwupd = {
+        enable = true;
+      };
     };
 
     # XDG Desktop Portal
@@ -29,6 +36,12 @@
       };
     };
 
+    programs = {
+      partition-manager = {
+        enable = true;
+      };
+    };
+
     # KDE-specific packages
     environment.systemPackages = with pkgs; [
       kate
@@ -38,7 +51,6 @@
       libsForQt5.kmail
       libsForQt5.ktorrent
       libsForQt5.kwallet-pam
-      partition-manager
       pciutils
     ];
   };

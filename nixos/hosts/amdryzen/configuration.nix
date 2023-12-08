@@ -1,7 +1,6 @@
 # amdryzen specific config
 { config, pkgs, inputs, ... }: {
   
-  # Imports specific
   imports = [
     ../../dev-pkgs.nix
     ../../gaming.nix
@@ -9,45 +8,57 @@
     ../../kde-games.nix
   ];
 
-  # Bootloader has to be done per machine, since the ThinkPad doesn't 
-  # support UEFI.
   boot = {
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
     };
 
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
-  # Hostname, networking and bluetooth
   networking = {
-    # Specify hostname
     hostName = "AMDNix2312-X";
   };
   
-  # Hardware specific
   hardware = {
     bluetooth = {
       enable = true;
     };
   };
 
-  # Services are good. Services are great. We should use them!
   services = {
+    blueman = {
+      enable = true;
+    };
     
-    # Enable printing service via CUPS
+    pipewire = {
+      jack = {
+        enable = false;
+      };
+    };
+
     printing = {
       enable = true;
-      # Add drivers for Epson WF-7710 printer support
       drivers = with pkgs; [
-        epson-escpr2
+        epson-escpr2  # Add drivers for Epson WF-7710 printer support
       ];
     };
 
-    # Add JACK support to PipeWire
-    pipewire = {
-      jack.enable = false;
+    spice-autorandr = {
+      enable = true;
+    };
+
+    spice-vdagentd = {
+      enable = true;
+    };
+
+    spice-webdavd = {
+      enable = true;
     };
 
     udev = {
@@ -56,28 +67,13 @@
         SUBSYSTEMS=="usb", ATTRS{idVendor}=="0fd9", GROUP="users", TAG+="uaccess"
       '';
     };
-
-    spice-vdagentd = {
-      enable = true;
-    };
-
-    spice-autorandr = {
-      enable = true;
-    };
-
-    spice-webdavd = {
-      enable = true;
-    };
   };
 
-  # QEMU/KVM & Podman
   virtualisation = {
     
-    # QEMU/KVM via libvirt daemon
     libvirtd = {
       enable = true;
       
-      # Extra QEMU options
       qemu = {
 	      runAsRoot = true;
 
@@ -91,30 +87,39 @@
         };
       };
 
-      # Specify behavior on boot and shutdown
       onBoot = "ignore";
       onShutdown = "shutdown";
     };
 
-    # Podman for containers
     podman = {
       enable = true;
       dockerCompat = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
+      defaultNetwork = {
+        settings = {
+          dns_enabled = true;
+        };
       };
     };
     
-    # Waydroid
     waydroid = {
       enable = true;
     };
   };
 
-  # Enable Fish-Shell
-  programs.fish.enable = true;
+  programs = {
+    ausweisapp = {
+      enable = true;
+    };
 
-  # User account related things specific
+    fish = {
+      enable = true;
+      };
+
+    virt-manager = {
+      enable = true;
+    };
+  };
+
   users = {
     users = {
       derbetakevin = {
@@ -130,27 +135,18 @@
     };
   };
 
-  # Environment related things specific
   environment = {
-    
-    # Environment variables
     sessionVariables = {
       LIBVIRT_DEFAULT_URI = ["qemu:///system"];
     };
 
-    # Packages specific
     systemPackages = with pkgs; [
       inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
       inputs.nix-software-center.packages.${system}.nix-software-center
-      ausweisapp
-      blueman
       chatterino2
       distrobox
       element-desktop
       espanso-wayland
-      firefox-beta
-      firefox-devedition
-      firefox-esr
       fluent-reader
       gimp
       google-chrome
@@ -171,7 +167,6 @@
       teamspeak_client
       teamspeak5_client
       tor-browser
-      virt-manager
       vivaldi
       win-virtio
     ];

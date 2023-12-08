@@ -16,9 +16,11 @@
       };
     };
     
-    users.users = {
-      derbetakevin = {
-        extraGroups = [ "adbusers" ];
+    users = {
+      users = {
+        derbetakevin = {
+          extraGroups = [ "adbusers" ];
+        };
       };
     };
 

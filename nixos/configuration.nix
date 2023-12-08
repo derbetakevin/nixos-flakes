@@ -10,7 +10,9 @@
     kernelModules = ["zram"];
 
     # Disable swraid to get rid of the warning
-    swraid.enable = false;
+    swraid = {
+      enable = false;
+    };
 
     # Increase the vm.max_map_count 
     kernel = {
@@ -27,25 +29,30 @@
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+    };
   };  
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time = {
+    timeZone = "Europe/Berlin";
+  };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "de_DE.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
+  i18n = {
+    defaultLocale = "de_DE.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_DE.UTF-8";
+      LC_IDENTIFICATION = "de_DE.UTF-8";
+      LC_MEASUREMENT = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+      LC_NAME = "de_DE.UTF-8";
+      LC_NUMERIC = "de_DE.UTF-8";
+      LC_PAPER = "de_DE.UTF-8";
+      LC_TELEPHONE = "de_DE.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
+    };
   };
 
   services = {
@@ -59,6 +66,17 @@
 
     openssh = {
       enable = true;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse = {
+        enable = true;
+      };
     };
 
     printing = {
@@ -76,31 +94,50 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
-
-  # Enable dconf
-  programs.dconf.enable = true;
-
-  # Environment Variables
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
+  console = {
+    keyMap = "de";
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    # jack.enable = true;
+  programs = {
+    command-not-found = {
+      enable = true;
+    };
+    dconf = {
+      enable = true;
+    };
+    firefox = {
+      enable = true;
+      languagePacks = ["de"];
+    };
+    neovim = {
+      enable = true;
+    };
+    starship = {
+      enable = true;
+    };
+  };
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  # Environment Variables
+  environment = {
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = "1";
+    };
+  };
+
+  sound = {
+    enable = true;
+  };
+
+  hardware = {
+    pulseaudio = {
+      enable = false;
+    };
+  };
+
+  security = {
+    rtkit = {
+      enable = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -154,7 +191,6 @@
     discord
     evince
     eza
-    firefox-wayland
     fsearch
     glxinfo
     gnome.gnome-disk-utility
@@ -166,7 +202,6 @@
     lm_sensors
     lsb-release
     neofetch
-    neovim
     ntfs3g
     onlyoffice-bin
     pciutils
@@ -203,7 +238,9 @@
     noto-fonts-cjk
     noto-fonts-emoji
     proggyfonts
+    roboto
     ubuntu_font_family
+    vegur
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
