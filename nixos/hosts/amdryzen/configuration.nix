@@ -6,6 +6,7 @@
     ../../gaming.nix
     ../../kde.nix
     ../../kde-games.nix
+    ../../starship.nix
   ];
 
   boot = {
