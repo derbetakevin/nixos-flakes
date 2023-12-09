@@ -4,6 +4,7 @@
   imports = [
     ../../dev-pkgs.nix
     ../../gaming.nix
+    ../../gnome-games.nix
     ../../kde.nix
     ../../kde-games.nix
     ../../starship.nix
