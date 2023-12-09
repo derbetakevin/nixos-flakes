@@ -112,9 +112,6 @@
     neovim = {
       enable = true;
     };
-    starship = {
-      enable = true;
-    };
   };
 
   # Environment Variables
