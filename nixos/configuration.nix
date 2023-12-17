@@ -210,7 +210,6 @@
     starship
     tdesktop
     teamviewer
-    timeshift
     thunderbird-unwrapped
     usbutils
     unzip

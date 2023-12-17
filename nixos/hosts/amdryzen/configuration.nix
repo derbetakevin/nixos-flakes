@@ -157,12 +157,9 @@
       librewolf
       mcfly
       microsoft-edge
-      microsoft-edge-beta
-      microsoft-edge-dev
       nvtop
       obs-studio
       onedrivegui
-      opera
       radeontop
       skypeforlinux
       spice
