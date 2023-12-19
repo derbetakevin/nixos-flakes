@@ -29,8 +29,7 @@
       minecraft
       osu-lazer-bin
       pcsx2
-      retroarchFull
-      retroarch-joypad-autoconfig
+      retroarch
       superTuxKart
       winePackages.stableFull
       winetricks
