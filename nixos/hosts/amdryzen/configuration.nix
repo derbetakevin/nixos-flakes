@@ -149,6 +149,7 @@
       distrobox
       element-desktop
       espanso-wayland
+      filezilla
       fluent-reader
       gimp
       google-chrome
