@@ -1,12 +1,18 @@
-# acertravelmate specific config
+# Acer specific config
 { config, pkgs, ... }: {
   
-  # Imports specific
+  # Imports specific to the Acer
   imports = [
+    # ../../awesomewm.nix
     # ../../dev-pkgs.nix
     # ../../gaming.nix
-    ../../kde.nix
+    # ../../gnome.nix
+    # ../../gnome-gaming.nix
+    ../../hyprland.nix
+    # ../../kde.nix
     # ../../kde-gaming.nix
+    # ../../wayfire.nix
+    # ../../xfce.nix
   ];
 
   # Bootloader has to be done per machine, since the Acer doesn't 
