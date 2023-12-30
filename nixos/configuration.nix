@@ -180,12 +180,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    agedu
     anydesk
     brave
     btop
     cmatrix
     conky
     discord
+    duf
     evince
     eza
     fsearch
@@ -198,6 +200,7 @@
     libreoffice
     lm_sensors
     lsb-release
+    lsd
     neofetch
     ntfs3g
     onlyoffice-bin
@@ -205,12 +208,14 @@
     pfetch-rs
     remmina
     shortwave
+    smartmontools
     standardnotes
     spotify
     starship
     tdesktop
     teamviewer
     thunderbird-unwrapped
+    tiv
     usbutils
     unzip
     vesktop
