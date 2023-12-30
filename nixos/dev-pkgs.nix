@@ -25,10 +25,12 @@
     };
 
     environment.systemPackages = with pkgs; [
+      emacs
       gh
       gitFull
       github-desktop
       gnat13
+      gnumake
       gnome.ghex
       godot_4
       nix-prefetch-scripts
