@@ -9,6 +9,11 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
     nix-software-center.url = "github:vlinkz/nix-software-center";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -28,6 +33,32 @@
           };
 
           modules = [
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${user} = {
+                  imports = [
+                    # Common Home Manager configuration
+                    ./nixos/home.nix
+                    # Host specific Home Manager configuration
+                    ./nixos/hosts/${host}/home.nix
+                  ];
+
+                  home = {
+                    username = user;
+                    homeDirectory = "/home/${user}";
+                    # Do not change this value!
+                    stateVersion = "23.05";
+                  };
+
+                  # Let Home Manager manager and install itself
+                  programs.home-manager.enable = true;
+                };
+              };
+            }
+
             # common configuration
             ./nixos/configuration.nix
             # host specific configuration
