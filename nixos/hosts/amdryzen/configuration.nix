@@ -2,12 +2,16 @@
 { config, pkgs, inputs, ... }: {
   
   imports = [
+    # ../../awesomewm.nix
     ../../dev-pkgs.nix
     ../../gaming.nix
     ../../gnome-games.nix
+    # ../../hyprland.nix
     ../../kde.nix
     ../../kde-games.nix
     ../../starship.nix
+    # ../../wayfire.nix
+    # ../../xfce.nix
   ];
 
   boot = {
@@ -161,7 +165,10 @@
       nvtop
       obs-studio
       onedrivegui
+      putty
       radeontop
+      realvnc-vnc-viewer
+      rpi-imager
       skypeforlinux
       spice
       teamspeak_client
